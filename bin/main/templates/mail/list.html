@@ -25,7 +25,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" th:insert="~{/modules/sidebar :: sidebar}"></ul>
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" th:insert="~{modules/sidebar :: sidebar}"></ul>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -35,7 +35,7 @@
       <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" th:insert="~{/modules/topbar :: topbar}"></nav>
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" th:insert="~{modules/topbar :: topbar}"></nav>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -86,7 +86,7 @@
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white" th:insert="~{/modules/footer :: footer}"></footer>
+      <footer class="sticky-footer bg-white" th:insert="~{modules/footer :: footer}"></footer>
       <!-- End of Footer -->
 
     </div>
@@ -100,8 +100,8 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <div th:insert="~{/modules/modals :: logout-modal}"></div>
-  <div th:insert="~{/home :: script}"></div>
+  <div th:insert="~{modules/modals :: logout-modal}"></div>
+  <div th:insert="~{home :: script}"></div>
 
   <div id="detail-block"></div>
 

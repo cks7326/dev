@@ -3,7 +3,7 @@
 <!-- th:insert="~{footer :: copy}"  th:fragment="header" -->
 <head>
 
-  <title>SB Admin 2 - Blank</title>
+  <title>CI-CD-Test</title>
   
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +15,7 @@
   <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
   <link th:href="@{/https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i}" rel="stylesheet">
 
-  <!-- Custom styles for this template-->
+  <!-- Custom styles for this template @{/css/sb-admin-2.min.css}-->
   <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
 
 </head>
@@ -26,7 +26,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" th:insert="~{/modules/sidebar :: sidebar}"></ul>
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" th:insert="~{modules/sidebar :: sidebar}"></ul>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -36,15 +36,15 @@
       <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" th:insert="~{/modules/topbar :: topbar}"></nav>
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" th:insert="~{modules/topbar :: topbar}"></nav>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
-
+          <h1 class="h3 mb-4 text-gray-800"> 현재 프로그램은</h1>
+          <h1 class="h3 mb-4 text-gray-800"> Version 1 입니다.</h1>
         </div>
         <!-- /.container-fluid -->
 
@@ -52,7 +52,7 @@
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white" th:insert="~{/modules/footer :: footer}"></footer>
+      <footer class="sticky-footer bg-white" th:insert="~{modules/footer :: footer}"></footer>
       <!-- End of Footer -->
 
     </div>

@@ -38,8 +38,8 @@
 	</sql>
 	
 	<insert id="insertBoard" useGeneratedKeys="true" keyColumn="board_idx" keyProperty="boardIdx">
-		INSERT INTO tbl_board (title, contents, creator_id)
-		VALUES (#{ title }, #{ contents }, #{ creatorId })
+		INSERT INTO tbl_board (title, contents, creator_id, deleted_yn)
+		VALUES (#{ title }, #{ contents }, #{ creatorId }, 'N')
 	</insert>
 	
 	<select id="selectBoard" resultMap="boardMap" parameterType="hashmap" >

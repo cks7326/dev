@@ -26,7 +26,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" th:insert="~{/modules/sidebar :: sidebar}"></ul>
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" th:insert="~{modules/sidebar :: sidebar}"></ul>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -36,7 +36,7 @@
       <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" th:insert="~{/modules/topbar :: topbar}"></nav>
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" th:insert="~{modules/topbar :: topbar}"></nav>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -44,7 +44,6 @@
 
            <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">게시판</h1>
-          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
@@ -60,7 +59,6 @@
                       <th>글번호</th>
                       <th>제목</th>
                       <th>작성자</th>
-                      <th>작성일자</th>
 					  <th>조회수</th>
                     </tr>
                   </thead>
@@ -69,7 +67,6 @@
                       <td th:text="${b.boardIdx}"></td>
                       <td><a th:href="@{detail/} + ${b.boardIdx}" th:text="${b.title}"></a></td>
                       <td th:text="${b.creatorId}"></td>
-                      <td th:text="${b.createdDatetime}"></td>
 					  <td th:text="${b.hitCount}"></td>
                     </tr>
                     <tr th:unless="${#lists.size(boards) > 0}">
@@ -91,7 +88,7 @@
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white" th:insert="~{/modules/footer :: footer}"></footer>
+      <footer class="sticky-footer bg-white" th:insert="~{modules/footer :: footer}"></footer>
       <!-- End of Footer -->
 
     </div>
@@ -105,8 +102,8 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
- <div th:insert="~{/home :: logout-modal}"></div>
-  <div th:insert="~{/home :: script}"></div>
+ <div th:insert="~{home :: logout-modal}"></div>
+  <div th:insert="~{home :: script}"></div>
 </body>
 
 </html>
