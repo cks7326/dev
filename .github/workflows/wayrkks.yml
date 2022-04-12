@@ -39,9 +39,15 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
           run: |
-            chmod -x ./gradlew
+            chmod +x ./gradlew
             ./gradlew build --no-daemon
             
+      - name : check build
+        run : ls ./build/libs
+        
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
             
 
 
