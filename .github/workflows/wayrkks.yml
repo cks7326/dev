@@ -38,7 +38,9 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           cache: 'gradle'
-          run: chmod +x ./gradlew
+          
+      - name: chmod gradle    
+        run: chmod +x ./gradlew
       
       - name: build       
         run: ./gradlew build --no-daemon
@@ -49,6 +51,9 @@ jobs:
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v1
+        
+      - name: docker ps
+        run: docker ps
             
 
 
