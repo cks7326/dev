@@ -44,7 +44,7 @@ jobs:
             
             
       - name : check build
-        run: ls ./build/libs
+        run: ls ~/build/libs
      
 
 
