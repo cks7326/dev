@@ -54,7 +54,12 @@ jobs:
         
       - name: docker ps
         run: docker ps
-            
+      
+      - name : docker build
+        run : |
+          cp ./build/libs/*.war ./Dockerfile
+          docker build -t wayrkks/m-dev:tomcat-github_v1 ./Dockerfile
+          docker images
 
 
         
