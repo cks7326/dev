@@ -63,6 +63,9 @@ jobs:
           
       - name: check images    
         run: docker images
+        
+      - name: image push
+        run: docker push wayrkks/m-dev:tomcat-github_v1
 
 
         
