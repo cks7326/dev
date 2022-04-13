@@ -59,7 +59,9 @@ jobs:
         run : cp ./build/libs/*.war ./Dockerfile
           
       - name: docker build
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/m-dev:tomcat-github_v1 ./Dockerfile
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/m-dev:tomcat_latest ./Dockerfile
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/m-dev:tomcat_${GITHUB_RUN_NUMBER} ./Dockerfile
           
       - name: check images    
         run: docker images
@@ -72,8 +74,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           
       - name: image push
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/m-dev:tomcat-github_v1
-        
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/m-dev --all-tags
+          
 
       - id: 'auth'
         uses: 'google-github-actions/auth@v0'
