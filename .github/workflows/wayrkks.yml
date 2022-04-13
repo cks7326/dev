@@ -84,7 +84,7 @@ jobs:
 
         
       - name: k8s rollout
-        run: kubectl.exe rollout restart deployment/was
+        run: kubectl rollout restart deployment/was
 
 
         
