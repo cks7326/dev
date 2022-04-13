@@ -1,0 +1,28 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: was
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: was
+  template:
+    metadata:
+      labels:
+        app: was
+    spec:
+      containers:
+      - name: was
+        image: wayrkks/m-dev:tomcat-github_v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      initContainers:
+      - name: redis-service
+        image: busybox:1.28
+        command: ['sh', '-c', "until nslookup redis-svc.default.svc.cluster.local; do echo waiting for redis-svc; sleep 2; done"]
+      - name: wait-for-mysql
+        image: busybox:1.28
+        command: ['sh', '-c', "until nslookup db-0.mysql-svc.default.svc.cluster.local; do echo waiting for db-0.mysql.svc; sleep 2; done"]

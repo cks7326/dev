@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+spec:
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: redis
+        image: wayrkks/m-dev:redis_v1
+        ports:
+        - containerPort: 6379
+        volumeMounts:
+        - name:  redis-conf
+          mountPath: /usr/local/etc/redis/
+      volumes:
+        - name: redis-conf
+          configMap:
+            name: redis-conf
+  

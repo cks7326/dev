@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name:  mysql-pass
+data:
+   rootpass:  ZnJvZG81MDIwISE=
+   username:  ZnJvZG8=
+   userpass:  ZnJvZG81MDIwISE=
+type: Opaque

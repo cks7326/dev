@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: wayrkks/m-dev:nginx_v1
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: "/etc/nginx/"
+          name: nginx-conf
+          readOnly: true
+        resources:
+          limits:
+            memory: '64Mi'
+            cpu: "100m"
+      volumes:
+      - name: nginx-conf
+        configMap:
+          name: nginx-conf

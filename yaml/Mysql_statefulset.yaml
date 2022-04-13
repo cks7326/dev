@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: db
+spec:
+  serviceName: "mysql-svc"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - name: db
+        image: wayrkks/m-dev:mysql5.7_v2-1
+        args:
+          - "--ignore-db-dir=lost+found"       
+        env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: rootpass
+            - name: MYSQL_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-cm
+                  key: mysqldb
+            - name: MYSQL_USER # database에 권한이 있는 user
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: username                
+            - name: MYSQL_ROOT_HOST # 접근 호스트
+              value: '%'
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: userpass  
+        ports:
+        - containerPort: 3306
+          name: db
+        volumeMounts:
+        - name: db
+          mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+  - metadata:
+      name: db
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
