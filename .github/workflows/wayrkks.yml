@@ -73,6 +73,9 @@ jobs:
           
       - name: image push
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/m-dev:tomcat-github_v1
+        
+      - name: k8s rollout
+        run: kubectl.exe rollout restart deployment/was
 
 
         
